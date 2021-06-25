@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: service-customer
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: root
+      password: s3cr3t
+
+
+#server:
+#  port: 8092
+### ============================================
+### DB
+### ============================================
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/servicecustomer
+#    driverClassName: org.postgresql.Driver
+#    platform: postgres
+#    username: postgres
+#    password: 79643414
+#  ### ============================================
+#  ### JPA / HIBERNATE
+#  ### ============================================
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    proporties:
+#      hibernate:
+#        show_sql: true
+#        use_sql_comments: false
+#        format_sql: false
+#  loggin:
+#    pattern:
+#      console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} 5m%n"

@@ -1,0 +1,11 @@
+server:
+  port:
+
+eureka:
+  instace:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defulat: http://${eureka.instace.hostname}:${server.port}/eureka/
