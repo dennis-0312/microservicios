@@ -31,4 +31,4 @@ spring:
       registerWithEureka: false
       fetchRegistry: false
       serviceUrl:
-        defaultZone: http://localhost:8099/eureka/
+        defaultZone: http://localhost:8761/eureka/
