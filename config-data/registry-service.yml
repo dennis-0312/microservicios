@@ -2,10 +2,10 @@ server:
   port: 8081
 
 eureka:
-  instace:
+  instance:
     hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defulat: http://${eureka.instace.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instace.hostname}:${server.port}/eureka/
