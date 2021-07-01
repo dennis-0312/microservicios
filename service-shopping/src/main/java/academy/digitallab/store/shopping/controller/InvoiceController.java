@@ -45,7 +45,18 @@ public class InvoiceController {
         if (result.hasErrors()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, this.formatMessage(result));
         }
-        Invoice invoiceDB = invoiceService.createInvoice (invoice);
+        Invoice invoiceDB = invoiceService.createInvoice(invoice);
+
+        return  ResponseEntity.status( HttpStatus.CREATED).body(invoiceDB);
+    }
+
+    @PostMapping("/savesingle")
+    public ResponseEntity<Invoice> createSingleInvoice(@Valid @RequestBody Invoice invoice, BindingResult result) {
+        log.info("Creating Invoice : {}", invoice);
+        if (result.hasErrors()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, this.formatMessage(result));
+        }
+        Invoice invoiceDB = invoiceService.createSingleInvoice(invoice);
 
         return  ResponseEntity.status( HttpStatus.CREATED).body(invoiceDB);
     }

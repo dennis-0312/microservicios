@@ -32,7 +32,7 @@ public class Invoice{
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
-    @Valid
+//    @Valid
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "invoice_id")

@@ -47,6 +47,11 @@ public class InvoiceServiceImp implements InvoiceService {
     }
 
     @Override
+    public Invoice createSingleInvoice(Invoice invoice) {
+        return invoiceRepository.save(invoice);
+    }
+
+    @Override
     public Invoice getInvoice(Long id) {
         Invoice invoice = invoiceRepository.findById(id).orElse(null);
         if ( invoice != null) {
