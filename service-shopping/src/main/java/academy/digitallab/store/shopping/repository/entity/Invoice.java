@@ -17,6 +17,7 @@ public class Invoice{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "number_invoice")
@@ -31,9 +32,9 @@ public class Invoice{
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
-//    @Valid
+    @Valid
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "invoice_id")
     private List<InvoiceItem> items;
 

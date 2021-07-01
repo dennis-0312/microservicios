@@ -32,7 +32,7 @@ public class InvoiceServiceImp implements InvoiceService {
     }
 
     @Override
-    public Invoice create(Invoice invoice) {
+    public Invoice createInvoice(Invoice invoice) {
         Invoice invoiceBD = invoiceRepository.findByNumberInvoice(invoice.getNumberInvoice());
         if (invoiceBD != null){
             return invoiceBD;
