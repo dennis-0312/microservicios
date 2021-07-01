@@ -19,6 +19,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    // -------------------Retrieve All Products--------------------------------------------
+
     @GetMapping("/all")
     public ResponseEntity<List<Product>> listProduct() {
 //        return new ResponseEntity<>(productService.listAllProduct(), HttpStatus.OK);
@@ -44,6 +46,19 @@ public class ProductController {
 //        return ResponseEntity.ok(products);
     }
 
+    // -------------------Retrieve Single Product------------------------------------------
+
+    @GetMapping("/getproduct/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) {
+        Product products = productService.getProduct(id);
+        if (products == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(products);
+    }
+
+    // -------------------Create a Product------------------------------------------------
+
     @PostMapping("/save")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product productCreate = productService.createProduct(product);
@@ -56,4 +71,15 @@ public class ProductController {
 //        Product productCreate = productService.createProduct(product);
 //        return ResponseEntity.status(HttpStatus.CREATED).body(productCreate);
 //    }
+
+    // -------------------Update a Product-----------------------------------------------
+
+    @PutMapping("/updatestock/{id}/stock")
+    public ResponseEntity<Product> updateStockProduct(@PathVariable("id") Long id,@RequestParam(name = "quantity", required = true) Double quantity){
+        Product product = productService.updateStock(id, quantity);
+        if (product == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(product);
+    }
 }

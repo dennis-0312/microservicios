@@ -1,5 +1,6 @@
 package academy.digitallab.store.shopping.repository.entity;
 
+import academy.digitallab.store.shopping.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -30,7 +31,7 @@ public class Invoice{
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
-    @Valid
+//    @Valid
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "invoice_id")
@@ -38,8 +39,8 @@ public class Invoice{
 
     private String state;
 
-//    @Transient
-//    private Customer customer;
+    @Transient
+    private Customer customer;
 
     public Invoice(){
         items = new ArrayList<>();

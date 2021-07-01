@@ -50,6 +50,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product updateStock(Long id, Double quantity) {
-        return null;
+        Product productBD = getProduct(id);
+        if (productBD == null){
+            return null;
+        }
+
+        Double stock = productBD.getStock() + quantity;
+        productBD.setStock(stock);
+        return productRepository.save(productBD);
     }
 }

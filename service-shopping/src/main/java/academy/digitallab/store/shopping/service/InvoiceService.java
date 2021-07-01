@@ -9,4 +9,5 @@ import java.util.List;
 public interface InvoiceService {
     public List<Invoice> findInvoiceAll();
     public Invoice create(Invoice invoice);
+    public Invoice getInvoice(Long id);
 }
