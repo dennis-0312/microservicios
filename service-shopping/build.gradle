@@ -8,6 +8,13 @@ group = 'academy.digitallab.store'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
 repositories {
 	mavenCentral()
 }
@@ -24,7 +31,8 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+	implementation (group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.7.RELEASE')
 //	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard'
 	implementation (group: 'org.springframework.cloud', name: 'spring-cloud-netflix-hystrix-dashboard', version: '2.2.7.RELEASE')
 //	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
