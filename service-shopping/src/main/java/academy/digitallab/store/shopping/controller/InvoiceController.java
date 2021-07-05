@@ -50,6 +50,7 @@ public class InvoiceController {
         return  ResponseEntity.status( HttpStatus.CREATED).body(invoiceDB);
     }
 
+    // -------------------Create a Invoice Single-------------------------------------------
     @PostMapping("/savesingle")
     public ResponseEntity<Invoice> createSingleInvoice(@Valid @RequestBody Invoice invoice, BindingResult result) {
         log.info("Creating Invoice : {}", invoice);

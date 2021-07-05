@@ -1,9 +1,11 @@
 package academy.digitallab.store.shopping.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class Customer {
     private Long id;
     private String numberID;
